@@ -12,9 +12,10 @@ authors:
     given-names: Tugay
     affiliation: TU Chemnitz
     # orcid: "https://orcid.org/0000-0000-0000-0000"
-# repository-code: "https://github.com/<github-user>/splitting_4_arbitrary_mfem_biot"
+repository-code: "https://github.com/tugaydagli/splitting_4_arbitrary_mfem_biot"
+doi: 10.5281/zenodo.23800590
 license: MIT
-version: 1.0.0
+version: 1.0.1
 keywords:
   - Biot equations
   - poroelasticity

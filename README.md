@@ -1,6 +1,6 @@
 # splitting_4_arbitrary_mfem_biot
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/1190604094.svg)](https://doi.org/10.5281/zenodo.23800590)
 
 Reproducibility repository for the paper
 
@@ -126,8 +126,9 @@ When referring to the code itself, please additionally cite the archived version
                discretizations of the {B}iot equations''},
   year      = {2026},
   publisher = {Zenodo},
-  version   = {vX.Y.Z},
-  doi       = {10.5281/zenodo.XXXXXXX},
-  url       = {https://doi.org/10.5281/zenodo.XXXXXXX}
+  doi       = {10.5281/zenodo.23800590},
+  url       = {https://doi.org/10.5281/zenodo.23800590}
 }
 ```
+
+The DOI above refers to all versions; the DOI of a specific release is listed on its Zenodo record.
