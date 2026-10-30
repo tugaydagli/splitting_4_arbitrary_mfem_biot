@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: >-
+  If you use this code or results obtained with it, please cite the paper
+  given under "preferred-citation". When referring to the code itself,
+  please additionally cite the archived version of this repository.
+type: software
+title: >-
+  Code for "Splitting-strategies for arbitrary-order fully mixed finite
+  element discretizations of the Biot equations"
+authors:
+  - family-names: Dağlı
+    given-names: Tugay
+    affiliation: TU Chemnitz
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+# repository-code: "https://github.com/<github-user>/splitting_4_arbitrary_mfem_biot"
+license: MIT
+version: 1.0.0
+keywords:
+  - Biot equations
+  - poroelasticity
+  - mixed finite elements
+  - weak symmetry
+  - fixed-stress splitting
+  - NGSolve
+abstract: >-
+  Scripts and result files reproducing all numerical experiments of the paper
+  (Figures 1, 3, 4 and Tables 1-2, 4-8): a five-field, weakly symmetric fully
+  mixed finite element discretization of the Biot equations of arbitrary
+  order, solved with the fixed-stress splitting with destabilization.
+preferred-citation:
+  type: article
+  title: >-
+    Splitting-strategies for arbitrary-order fully mixed finite element
+    discretizations of the Biot equations
+  authors:
+    - family-names: Bertrand
+      given-names: Fleurianne
+    - family-names: Both
+      given-names: Jakub Wiktor
+    - family-names: Dağlı
+      given-names: Tugay
+  year: 2026
+  url: "https://arxiv.org/abs/2603.18241"
+  identifiers:
+    - type: other
+      value: "arXiv:2603.18241"
+      description: arXiv preprint
+  notes: Submitted to Computers and Mathematics with Applications.

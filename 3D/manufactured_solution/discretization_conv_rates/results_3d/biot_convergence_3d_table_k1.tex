@@ -1,0 +1,17 @@
+\begin{table}[ht!]
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{cccccccccc}
+\toprule
+$N$ & $h$ & $\|\mathbf{u}-\mathbf{u}_h\|_{0}$ & rate & $\|p-p_h\|_{0}$ & rate & $\|\mathbf{w}-\mathbf{w}_h\|_{H(\operatorname{div})}$ & rate & $\|\underline{\boldsymbol{\sigma}}-\underline{\boldsymbol{\sigma}}_h\|_{H(\operatorname{div})}$ & rate \\
+\midrule
+2 & 5.00000e-01 & 1.940e-03 & - & 1.100e-03 & - & 2.121e-02 & - & 6.966e-02 & - \\
+4 & 2.50000e-01 & 5.332e-04 & 1.86 & 3.068e-04 & 1.84 & 5.521e-03 & 1.94 & 1.857e-02 & 1.91 \\
+8 & 1.25000e-01 & 1.367e-04 & 1.96 & 7.884e-05 & 1.96 & 1.395e-03 & 1.98 & 4.722e-03 & 1.98 \\
+16 & 6.25000e-02 & 3.438e-05 & 1.99 & 1.984e-05 & 1.99 & 3.499e-04 & 2.00 & 1.186e-03 & 1.99 \\
+32 & 3.12500e-02 & 8.608e-06 & 2.00 & 4.970e-06 & 2.00 & 8.756e-05 & 2.00 & 2.968e-04 & 2.00 \\
+\bottomrule
+\end{tabular}
+\caption{3D convergence rates for $k=1$.}
+\label{tab:biot_convergence_3d_k1}
+\end{table}

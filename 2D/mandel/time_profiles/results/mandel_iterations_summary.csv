@@ -1,0 +1,4 @@
+tuning,beta,iterations_mean,iterations_max,num_steps
+off,0.0,6.0402,10,5000
+on,1.212121212121212e-10,6.0072,8,5000
+on1d,9.090909090909091e-11,3.0,3,5000
