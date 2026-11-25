@@ -2,11 +2,15 @@
 
 [![DOI](https://zenodo.org/badge/1190604094.svg)](https://doi.org/10.5281/zenodo.23800590)
 
+[![Paper DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.camwa.2026.11.013-blue)](https://doi.org/10.1016/j.camwa.2026.11.013)
+
 Reproducibility repository for the paper
 
 > F. Bertrand, J. W. Both, T. Dağlı,
 > *Splitting-strategies for arbitrary-order fully mixed finite element discretizations of the Biot equations*,
-> submitted to Computers and Mathematics with Applications (2026). Preprint: [arXiv:2603.18241](https://arxiv.org/abs/2603.18241).
+> Computers and Mathematics with Applications VOLUME (YEAR) PAGES,
+> [doi:10.1016/j.camwa.2026.11.013](https://doi.org/10.1016/j.camwa.2026.11.013) (open access).
+> Preprint: [arXiv:2603.18241](https://arxiv.org/abs/2603.18241).
 
 The repository contains the scripts and result files for all numerical experiments of Section 6:
 a five-field, weakly symmetric fully mixed finite element discretization of the Biot equations
@@ -105,15 +109,19 @@ This code is released under the MIT license; see `LICENSE`.
 If you use this code or results obtained with it, **please cite the paper**:
 
 ```bibtex
-@misc{BertrandBothDagli2026,
+@article{BertrandBothDagli2026,
   author        = {Bertrand, Fleurianne and Both, Jakub Wiktor and Da{\u{g}}l{\i}, Tugay},
   title         = {Splitting-strategies for arbitrary-order fully mixed finite element
                    discretizations of the {B}iot equations},
-  year          = {2026},
+  journal       = {Computers and Mathematics with Applications},
+  volume        = {VOLUME},
+  pages         = {PAGES},
+  year          = {YEAR},
+  doi           = {10.1016/j.camwa.2026.11.013},
+  url           = {https://doi.org/10.1016/j.camwa.2026.11.013},
   eprint        = {2603.18241},
   archivePrefix = {arXiv},
-  primaryClass  = {math.NA},
-  note          = {Submitted to Computers and Mathematics with Applications}
+  primaryClass  = {math.NA}
 }
 ```
 
