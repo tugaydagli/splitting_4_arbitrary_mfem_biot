@@ -8,7 +8,7 @@ Reproducibility repository for the paper
 
 > F. Bertrand, J. W. Both, T. Dağlı,
 > *Splitting-strategies for arbitrary-order fully mixed finite element discretizations of the Biot equations*,
-> Computers and Mathematics with Applications VOLUME (YEAR) PAGES,
+> Computers and Mathematics with Applications 226 (2027) 78–100,
 > [doi:10.1016/j.camwa.2026.11.013](https://doi.org/10.1016/j.camwa.2026.11.013) (open access).
 > Preprint: [arXiv:2603.18241](https://arxiv.org/abs/2603.18241).
 
@@ -114,9 +114,9 @@ If you use this code or results obtained with it, **please cite the paper**:
   title         = {Splitting-strategies for arbitrary-order fully mixed finite element
                    discretizations of the {B}iot equations},
   journal       = {Computers and Mathematics with Applications},
-  volume        = {VOLUME},
-  pages         = {PAGES},
-  year          = {YEAR},
+  volume        = {226},
+  pages         = {78--100},
+  year          = {2027},
   doi           = {10.1016/j.camwa.2026.11.013},
   url           = {https://doi.org/10.1016/j.camwa.2026.11.013},
   eprint        = {2603.18241},

@@ -16,7 +16,7 @@ repository-code: "https://github.com/tugaydagli/splitting_4_arbitrary_mfem_biot"
 doi: 10.5281/zenodo.23800590
 license: MIT
 version: 1.0.2
-date-released: "YYYY-MM-DD"
+date-released: "2026-11-25"
 keywords:
   - Biot equations
   - poroelasticity
@@ -42,10 +42,10 @@ preferred-citation:
     - family-names: Dağlı
       given-names: Tugay
   journal: Computers and Mathematics with Applications
-  volume: VOLUME
-  start: START_PAGE
-  end: END_PAGE
-  year: YEAR
+  volume: 226
+  start: 78
+  end: 100
+  year: 2027
   doi: 10.1016/j.camwa.2026.11.013
   url: "https://doi.org/10.1016/j.camwa.2026.11.013"
   identifiers:
