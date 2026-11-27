@@ -1,7 +1,6 @@
 # splitting_4_arbitrary_mfem_biot
 
-[![DOI](https://zenodo.org/badge/1190604094.svg)](https://doi.org/10.5281/zenodo.23800590)
-
+[![Code DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23800590.svg)](https://doi.org/10.5281/zenodo.23800590)
 [![Paper DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.camwa.2026.11.013-blue)](https://doi.org/10.1016/j.camwa.2026.11.013)
 
 Reproducibility repository for the paper
