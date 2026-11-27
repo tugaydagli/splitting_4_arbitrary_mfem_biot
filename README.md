@@ -28,7 +28,7 @@ of arbitrary order k, solved with the fixed-stress splitting with destabilizatio
 | Tables 5–6 | 3D manufactured solution, iteration counts for varying γ₁ and γ₂ (Section 6.3) | `3D/manufactured_solution/parameter_scaling_iterative_method_test/main.py` |
 | Tables 7–8 | 3D footing problem with the parameters of Both et al. (arXiv:1907.03134), iteration counts for varying E and θ (Section 6.4) | `3D/footing_benchmark/main.py` |
 
-Each folder also contains the result files (csv, LaTeX tables, figures) produced by the script,
+Each folder also contains the result files (csv files, LaTeX tables and, where applicable, figures) produced by the script,
 so that every entry of the paper can be checked without rerunning the computations.
 
 ## Notation used in the code

@@ -15,13 +15,13 @@ discontinuous P_k^3 displacement, continuous P_k^3 rotation; weak symmetry with
 as(sigma) = (s23 - s32, s31 - s13, s12 - s21).
 Sources are built by symbolic differentiation (.Diff) of the manufactured u, p.
 
-Linear solves: direct, PETSc/MUMPS with nested-dissection ordering (as stated in the paper);
+Linear solves: direct, PETSc/MUMPS with nested-dissection ordering;
 SOLVER = "splu" falls back to SciPy SuperLU (no petsc4py needed). Both are exact direct
 solves, so errors and iteration counts agree up to round-off.
 
 Set PLOT_ONLY = True to regenerate the figures/tables from the csv files in results_3d/.
 
-Author: Tugay Dagli
+Author: Tugay Dağlı
 """
 
 # ======================================================================
@@ -261,7 +261,7 @@ def biot_splitting_3d(
     #   b(x,y,z) = x(1-x) y(1-y) z(1-z)   (vanishes on the whole boundary)
     #   u = t (b, b, b),  p = t b
     #
-    # Momentum: -div(theta) + alpha grad(p) = g,  theta = 2 mu eps(u) + lam div(u) I
+    # Momentum: -div(sigma_eff) + alpha grad(p) = g,  sigma_eff = 2 mu eps(u) + lam div(u) I
     #   => g = t * g_s  with g_s the t-independent spatial part.
     # Mass: d/dt(c0 p + alpha div u) + div(w) = f,  w = -kappa grad p
     #   => f = c0 P_s + alpha div(U_s) - kappa t Lap(P_s).
@@ -279,7 +279,7 @@ def biot_splitting_3d(
     E12 = 0.5 * (U1s.Diff(z) + U2s.Diff(y))
     divUs = E00 + E11 + E22
 
-    # spatial effective stress theta
+    # spatial effective stress sigma_eff
     TH00 = 2 * mu * E00 + lam * divUs
     TH11 = 2 * mu * E11 + lam * divUs
     TH22 = 2 * mu * E22 + lam * divUs
@@ -287,7 +287,7 @@ def biot_splitting_3d(
     TH02 = 2 * mu * E02
     TH12 = 2 * mu * E12
 
-    # momentum source (spatial), g = -div(theta) + alpha grad(p)
+    # momentum source (spatial), g = -div(sigma_eff) + alpha grad(p)
     g0s = -(TH00.Diff(x) + TH01.Diff(y) + TH02.Diff(z)) + alpha * Ps.Diff(x)
     g1s = -(TH01.Diff(x) + TH11.Diff(y) + TH12.Diff(z)) + alpha * Ps.Diff(y)
     g2s = -(TH02.Diff(x) + TH12.Diff(y) + TH22.Diff(z)) + alpha * Ps.Diff(z)
@@ -498,7 +498,7 @@ def biot_splitting_3d(
         gfucomplete.components[5].vec.data = gfup.vec.data                  # p
         gfucomplete.components[6].vec.data = gfu.components[3].vec.data     # omega
 
-        print(f"+=====================================+\n")
+        print("+=====================================+\n")
 
     # ------------------------------------------------------------------
     # Error computations (exact fields built symbolically, at t = T = 1)

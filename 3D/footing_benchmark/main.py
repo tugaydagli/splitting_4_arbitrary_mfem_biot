@@ -6,7 +6,7 @@ Three-dimensional footing problem (Section 6.4, Tables 7 and 8 of the paper).
 
 Geometry, boundary conditions and material data follow cases I-III of
 Both, Kumar, Nordbotten, Radu, "The gradient flow structures of thermo-poro-visco-elastic
-processes in porous media", arXiv:1907.03134 (ref. [17] of the paper):
+processes in porous media", arXiv:1907.03134 (ref. [20] of the paper):
 
     u = 0                        on [0,1]^2 x {0}                          (clamped base)
     sigma n = 1e9 t e_3          on [0.25,0.75]^2 x {1}                    (ramped load)
@@ -40,7 +40,7 @@ Outputs (results_3d/):
   table_footing_beta_grid_3d.tex  Tables 7 (k = 1) and 8 (k = 2), booktabs, per-row minimum in bold
 Set TABLES_ONLY = True to rebuild the tables from the csv without recomputing.
 
-Author: Tugay Dagli
+Author: Tugay Dağlı
 """
 
 # ======================================================================
@@ -78,7 +78,7 @@ VERBOSE_ITER = False
 
 NONDIM = True              # True: non-dimensional form (paper setting); False: raw SI (ill-conditioned)
 
-# ---- material data of [17], cases I-III (SI units) ----------------------
+# ---- material data of [20], cases I-III (SI units) ----------------------
 NU = 0.2                   # Poisson ratio
 ALPHA = 1.0                # Biot-Willis coefficient
 M_BIOT = 1e11              # Biot modulus [Pa]  ->  c0 = 1/M_BIOT = 1e-11
@@ -103,8 +103,8 @@ THETAS = [0.0, 0.25, 0.5, 0.75, 1.0]
 
 assert SCAN_N % 4 == 0, "SCAN_N must be a multiple of 4 to resolve the [0.25,0.75]^2 patch."
 
-# reference to the material data in the table captions (replace by your \cite key if desired)
-REF_TEXT = "[17]"
+# reference to the material data in the table captions
+REF_TEXT = "[20]"
 
 # ---- direct-solver backend -----------------------------------------------
 SOLVER = "mumps"              # "mumps" (paper setting) or "splu"
@@ -215,11 +215,11 @@ class DirectSolver:
 
 
 # ======================================================================
-# Material data of [17] -> assembled coefficients (optionally non-dimensional)
+# Material data of [20] -> assembled coefficients (optionally non-dimensional)
 # ======================================================================
 def material_from_E(E):
     """
-    Lame parameters and poroelastic coefficients from (E, nu, M_b, kappa) of [17].
+    Lame parameters and poroelastic coefficients from (E, nu, M_b, kappa) of [20].
 
     NONDIM = True rescales stresses and pressure by S = E_REF (lengths: unit cube, time: unscaled):
         mu, lam -> mu/S, lam/S,   c0 -> c0*S,   kappa -> kappa*S,   load -> load/S.

@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
+Mandel's problem: time profiles of the dimensionless solution (Section 6.2, Figure 3 of the paper).
+
 Mandel (quarter domain) with row-wise H(div) stress, VectorL2 displacement,
-paper BCs (37)-(40), u2 = U2(b,t) on y=b, and structured anisotropic mesh.
+paper BCs (49), u2 = U2(b,t) on y=b, and structured anisotropic mesh.
 
 Analytical solutions from:
     Abousleiman, Y., Cheng, A.H.-D., Cui, L., Detournay, E., Roegiers, J.-C.
@@ -13,15 +15,14 @@ Numerical setup (parameters, BCs, splitting) following:
     Mikelic, A., Wang, B., Wheeler, M.F.
     "Numerical convergence study of iterative coupling for coupled flow
     and geomechanics." Comput. Geosci. 18, 325-341 (2014).
-    
-Author: Tugay Dagli
+
+Author: Tugay Dağlı
 """
 
 from ngsolve import *
-from netgen.geom2d import SplineGeometry
 import numpy as np
 import scipy.sparse as sp
-from scipy.sparse import csr_matrix, hstack, vstack
+from scipy.sparse import hstack, vstack
 from scipy.optimize import brentq
 import matplotlib.pyplot as plt
 import matplotlib as mpl
@@ -31,7 +32,7 @@ import pickle
 import csv
 
 # =============================================================================
-# Paths and table generate
+# Paths and output files
 # =============================================================================
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -574,6 +575,7 @@ def mandel_splitting_U2BC(
     elif tuning == "on":
         beta = -0.5 * cr
     elif tuning == "on1d":
+        # beta^1D = alpha^2 mu / ((2 mu + lam)(mu + lam)); equals (3/4) beta_max for nu = 0.2
         beta = -(alpha**2 * mu * (2 * mu + lam)**(-1) * (mu + lam)**(-1))
     else:
         raise ValueError("tuning must be 'off', 'on', or 'on1d'")
@@ -1462,9 +1464,9 @@ def run_or_load_case(case_name, tuning, force_rerun=False, **kwargs):
 
 
 def main():
-    print("=== Mandel test (quarter domain), BCs (37)-(40), u2 = U2(top,t) imposed ===")
+    print("=== Mandel test (quarter domain), BCs (49), u2 = U2(top,t) imposed ===")
 
-    record_times = (10, 50, 1000, 5000, 10000, 20000, 50000) 
+    record_times = (10, 50, 1000, 5000, 10000, 20000, 50000)
 
     common_kwargs = dict(
         k=1,
@@ -1502,7 +1504,7 @@ def main():
         **common_kwargs
     )
 
-    # plots remain only off vs on
+    # Figure 3 compares theta = 0 (off) and theta = 1 (on)
     time_to_color = build_time_to_color(out_off["snapshots_p"].keys())
 
     plot_compare_u1(out_off, out_on, time_to_color=time_to_color, save_name="mandel_u1")

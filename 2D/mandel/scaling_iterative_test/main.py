@@ -19,10 +19,10 @@ Poisson ratio nu_u and the Mandel diffusivity c are derived consistently from (E
 Outputs (results/):
   * mandel_scaling_summary.csv : one row per (gamma_3, k, theta), incl. per-step iterations
   * mandel_scaling_table.tex   : Table 4 (booktabs; per-row minimum in bold)
-Set TABLE_ONLY = True to rebuild the table from the csv without recomputing.
+Set TABLES_ONLY = True to rebuild the table from the csv without recomputing.
 Set COMPUTE_ERRORS = True to additionally record the (time-L2) discretization errors.
 
-Author: Tugay Dagli
+Author: Tugay Dağlı
 """
 
 from ngsolve import *
@@ -55,7 +55,7 @@ GAMMA3_VALUES = [1e2, 1e1, 1e0, 1e-1, 1e-2, 1e-3]
 K_VALUES = [1, 2, 3]
 THETA_VALUES = [0.0, 0.25, 0.5, 0.75, 1.0]
 
-TABLE_ONLY = False       # True: skip computation, rebuild the table from results/mandel_scaling_summary.csv
+TABLES_ONLY = False      # True: skip computation, rebuild the table from results/mandel_scaling_summary.csv
 COMPUTE_ERRORS = False   # True: also compute per-step errors and time-L2 errors (expensive; not in Table 4)
 VERBOSE = False          # True: print every fixed-stress iteration
 
@@ -1072,7 +1072,7 @@ def save_summary_csv(summary_rows, filename):
 def load_summary_csv(filename):
     filepath = os.path.join(RESULTS_DIR, filename)
     if not os.path.isfile(filepath):
-        raise FileNotFoundError(f"{filepath} not found. Run with TABLE_ONLY = False first.")
+        raise FileNotFoundError(f"{filepath} not found. Run with TABLES_ONLY = False first.")
     with open(filepath, newline="") as f:
         return list(csv.DictReader(f))
 
@@ -1235,8 +1235,8 @@ def main():
     print("=== Mandel scaling study (Table 4): gamma_3 x k x theta on [0, 100] ===")
     print(f"NGSolve {ngsolve.__version__}, SciPy {scipy.__version__}, NumPy {np.__version__}")
 
-    if TABLE_ONLY:
-        print("TABLE_ONLY = True: rebuilding the table from the stored csv.")
+    if TABLES_ONLY:
+        print("TABLES_ONLY = True: rebuilding the table from the stored csv.")
         summary_rows = load_summary_csv(SUMMARY_CSV)
     else:
         summary_rows = run_mandel_scaling_sweep()

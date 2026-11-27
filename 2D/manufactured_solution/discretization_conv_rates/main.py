@@ -14,7 +14,7 @@ Manufactured-solution convergence study for the Biot splitting scheme
 Set PLOT_ONLY = True to skip the computation and regenerate the figures and
 tables from the csv files already present in results/.
 
-Author: Tugay Dagli
+Author: Tugay Dağlı
 """
 
 # ======================================================================
@@ -45,11 +45,10 @@ os.makedirs(RESULTS_DIR, exist_ok=True)
 os.makedirs(FIGURES_DIR, exist_ok=True)
 
 # Mesh lists used for Figure 1 (N x N structured triangulation, h = 1/N).
-# These are only run lists, not mathematical changes to the method.
 MESHES_BY_K = {
     1: [8, 16, 32, 64],
     2: [4, 8, 16, 32],
-    3: [2, 4, 8, 16],  # check against Figure 1(c) of the paper
+    3: [2, 4, 8, 16],
 }
 
 # Extra refined run for the fourth panel, Figure 1(d)
@@ -357,7 +356,7 @@ def biot_splitting(
         gfucomplete.components[5].vec.data = gfu.components[2].vec.data
 
         gfucompleteT.AddMultiDimComponent(gfucomplete.vec)
-        print(f"+=====================================+\n")
+        print("+=====================================+\n")
 
     # ERROR COMPUTATIONS (at final time T = 1)
     u_exact = CoefficientFunction((T * x * (1 - x) * y * (1 - y), T * x * (1 - x) * y * (1 - y)))
@@ -393,7 +392,7 @@ def biot_splitting(
     p_error = sqrt(Integrate((p_exact - gfucomplete.components[4])**2, mesh, order=QUAD))
 
     print("Error between approximated and exact w in L2 norm:", L2errorw)
-    print("Error between approximated and exact div(w) in L2 norm", diverrorw)
+    print("Error between approximated and exact div(w) in L2 norm:", diverrorw)
     print("Error between approximated and exact w in hdiv norm:", Hdiverrorw)
 
     print("Error between approximated and exact sigma in L2 norm:", L2errorstress)

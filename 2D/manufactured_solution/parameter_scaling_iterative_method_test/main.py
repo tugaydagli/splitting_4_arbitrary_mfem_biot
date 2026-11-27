@@ -16,7 +16,7 @@ with theta := beta / beta_max and M := d alpha^2 / (2 mu + d lambda).
 Set TABLES_ONLY = True to skip the computation and regenerate the LaTeX tables
 from the csv files already present in results/.
 
-Author: Tugay Dagli
+Author: Tugay Dağlı
 """
 
 # ======================================================================
@@ -56,10 +56,10 @@ N_SCAN = 16                                               # fixed N x N mesh for
 # splitting variants: label -> theta = beta / beta_max
 VARIANTS = {"FS": 0.0, "max": 1.0}
 
-# table headers for the two variants (adjust if the paper uses macros)
+# table headers for the two variants
 BETA_HEADERS = {"FS": r"$\beta_{\mathrm{FS}}$", "max": r"$\beta_{\max}$"}
 
-COMPUTE_ERRORS = True   # errors are not in Tables 1-2 but support the large-gamma_2 discussion in Sec. 6.1
+COMPUTE_ERRORS = True   # errors are not reported in Tables 1-2
 TABLES_ONLY = False     # True: skip computation, regenerate tables from csv files in results/
 QUAD = 10               # quadrature order for all error integrals; exact for squared integrands up to k=3
 
@@ -321,7 +321,7 @@ def biot_splitting(
         gfucomplete.components[4].vec.data = gfup.vec.data
         gfucomplete.components[5].vec.data = gfu.components[2].vec.data
 
-        print(f"+=====================================+\n")
+        print("+=====================================+\n")
 
     # coupling strength tau = d alpha^2 / (c0 (2 mu + d lam)) = M / c0
     tau = cr / c0 if c0 > 1e-17 else float("inf")

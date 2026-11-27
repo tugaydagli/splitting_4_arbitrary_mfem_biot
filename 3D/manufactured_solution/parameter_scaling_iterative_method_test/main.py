@@ -14,10 +14,10 @@ for k = 1, 2 and the two splitting variants of the paper:
 with theta := beta / beta_max, M := d alpha^2 / (2 mu + d lambda), d = 3, tau = M / c0.
 
 Same manufactured solution (51), time step dt = 1/4 on [0, 1] and stopping criterion (47)
-as the convergence study (main3d.py), on a fixed SCAN_N^3 structured tetrahedral mesh (SCAN_N = 8).
+as the convergence study (../discretization_conv_rates/main.py), on a fixed SCAN_N^3 structured tetrahedral mesh (SCAN_N = 8).
 At strong coupling the counts depend moderately on the mesh; MESH_CHECK documents this.
 
-Linear solves: direct, PETSc/MUMPS with nested-dissection ordering (as stated in the paper);
+Linear solves: direct, PETSc/MUMPS with nested-dissection ordering;
 SOLVER = "splu" falls back to SciPy SuperLU.
 
 Flags:
@@ -25,7 +25,7 @@ Flags:
   MESH_CHECK  = True : additionally rerun the strongest-coupling cases on several meshes
                        (MESH_CHECK_N) and print/store the counts (mesh dependence of the counts)
 
-Author: Tugay Dagli
+Author: Tugay Dağlı
 """
 
 # ======================================================================
@@ -81,7 +81,7 @@ COMPUTE_ERRORS = False   # tables only need iteration counts
 VERBOSE_ITER = False     # print every fixed-point iteration
 INT_ORDER = 12           # quadrature order for the optional error integrals (exact for k <= 2)
 
-MESH_CHECK = True                        # True: rerun strongest coupling on several meshes
+MESH_CHECK = False                       # True: rerun strongest coupling on several meshes
 MESH_CHECK_N = [2, 4, 8, 16]
 MESH_CHECK_GAMMA1 = [0.01, 0.001]        # gamma_2 = 1
 
@@ -246,7 +246,7 @@ def biot_splitting_3d(
     Asigma3 = (1 / (2 * mu)) * (sigma3 - (lam / (2 * mu + d * lam)) * tr3(sigma1, sigma2, sigma3) * e3)
 
     # ------------------------------------------------------------------
-    # Time stepping + manufactured sources (symbolic; same as main3d.py)
+    # Time stepping + manufactured sources (symbolic; same as the convergence study)
     # ------------------------------------------------------------------
     t0 = 0.0
     dtdiv = 4
